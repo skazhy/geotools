@@ -87,18 +87,20 @@
   "input {:lat 56.9575580 :lon 24.1574050}
    bearing in degrees, distance in meters."
   [from bearing distance]
-  (let [angular-dist (/ distance EARTH-RADIUS)
-        lat (Math/asin (+ (* (Math/sin (Math/toRadians (:lat from)))
+  (let [from-lat (to-decimal (:lat from))
+        from-lon (to-decimal (:lon from))
+        angular-dist (/ distance EARTH-RADIUS)
+        lat (Math/asin (+ (* (Math/sin (Math/toRadians from-lat))
                              (Math/cos angular-dist))
-                          (* (Math/cos (Math/toRadians (:lat from)))
+                          (* (Math/cos (Math/toRadians from-lat))
                              (Math/sin angular-dist)
                              (Math/cos (Math/toRadians bearing)))))]
     {:lat (Math/toDegrees lat)
      :lon (Math/toDegrees
-            (+ (Math/toRadians (:lon from))
+            (+ (Math/toRadians from-lon)
                (Math/atan2 (* (Math/sin (Math/toRadians bearing))
                               (Math/sin angular-dist)
-                              (Math/cos (Math/toRadians (:lat from))))
+                              (Math/cos (Math/toRadians from-lat)))
                            (- (Math/cos angular-dist)
-                              (* (Math/sin (Math/toRadians (:lat from)))
+                              (* (Math/sin (Math/toRadians from-lat))
                                  (Math/sin lat))))))}))

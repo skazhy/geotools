@@ -1,6 +1,6 @@
 (ns geotools.format
   (:require [clojure.string :as str]
-            [geotools.core :refer [to-ddm]]))
+            [geotools.core :refer [to-ddm to-decimal]]))
 
 (defn format-geocheck
   "Formats given {:lat XXX :lon XXX} map for GeoCheck.org validation."
@@ -13,6 +13,9 @@
          (if (pos? lat-deg) "E" "W")
          (format "%03d " (Math/abs lon-deg))
          (format "%06.3f" lon-min))))
+
+(defn format-decimal [{:keys [lat lon]}]
+  (str (to-decimal lat) "," (to-decimal lon)))
 
 ;;; Parsing
 
