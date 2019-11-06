@@ -13,3 +13,9 @@ There are 3 representations of a coordinate:
 
 * Negative latitudes are _south_
 * Netative longitudes are _west_
+
+## Parsing
+
+* Generic coordinate string parsing: `geotools.parse.core/parse-string`
+* Latvian Geospatial Information Agency (LĢIA) export parsing
+  `geotools.parse.lgia/parse-lgia`
