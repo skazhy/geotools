@@ -8,7 +8,7 @@
    "<Cell ss:StyleID=\"Dati\"><Data ss:Type=\"String\">purvs </Data></Cell>"
    "<Cell ss:StyleID=\"Dati\"><Data ss:Type=\"String\">pastav </Data></Cell>"
    "<Cell ss:StyleID=\"Dati\"><Data ss:Type=\"String\"> </Data></Cell>"
-   "<Cell ss:StyleID=\"DatiTopo\"><Data ss:Type=\"String\"> </Data></Cell>"
+   "<Cell ss:StyleID=\"DatiTopo\"><Data ss:Type=\"String\">Foo purvs; Bar purvs </Data></Cell>"
    "<Cell ss:StyleID=\"Dati\"><Data ss:Type=\"String\">Durbe, Durbes novads </Data></Cell>"
    "<Cell ss:StyleID=\"Dati\"><Data ss:Type=\"String\">56° 34' 32\" </Data></Cell>"
    "<Cell ss:StyleID=\"Dati\"><Data ss:Type=\"String\">21° 21' 41\" </Data></Cell>"])
@@ -20,6 +20,6 @@
           :type "purvs"
           :state "pastav"
           :official-name nil
-          :other-names nil
+          :other-names ["Foo purvs" "Bar purvs"]
           :unit "Durbe, Durbes novads"
           :coordinates {:lon [21 21 41.0] :lat [56 34 32.0]}})))

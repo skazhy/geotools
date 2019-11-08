@@ -12,6 +12,7 @@
 (defn parse-coordinates [lgia-map]
   (let [coordinates (parse-string (str (:lat lgia-map) " " (:lon lgia-map)))]
     (-> (assoc lgia-map :coordinates coordinates)
+        (update :other-names #(when % (str/split % #"; ")))
         (dissoc :lat :lon))))
 
 (defn parse-lgia-block [rows]
